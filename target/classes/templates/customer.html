@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:layout= "http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer</title>
+    <link th:rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container" >
+    <h1> Register Customers</h1>
+    <form th:action="@{/customer}" method= "POST">
+        <div class="form-group">
+            <label  for= "inputId"> Id</label>
+            <input type= "input" class="form-control" name= "id" id= "inputId">
+        </div> <div class="form-group">
+            <label for= "inputName"> Name</label>
+            <input type= "input" class="form-control" name= "name" id= "inputName">
+        </div> <div class="form-group">
+            <label for= "inputLastname"> Lastname</label>
+            <input type= "input" class="form-control" name= "lastname" id= "inputLastname">
+    </div> <div class="form-group">
+        <label for= "inputAmount"> Amount</label>
+        <input type= "input" class="form-control" name= "amount" id= "inputAmount">
+        </div> <div class="form-group">
+            <input type= "submit" class="btn btn-primary"></div>
+    </form>
+    <hr>
+
+    <h1> All Customers</h1>
+    <table  class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th> Id</th>
+                <th> Name</th>
+                <th> Lastname</th>
+                <th> Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each= "customer : ${allCustomers}">
+                <td th:text= "${customer.id}"> </td>
+                <td th:text= "${customer.name}"> </td>
+                <td th:text= "${customer.lastname}"> </td>
+                <td th:text="${customer.amount}"></td>
+            </tr>
+        </tbody></table>
+</div>
+</body>
+</html>
